@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>system后台登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>my thymeleaf indexpage</h1>
+<center>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td>账号：</td>
+                <td><input type="text" id="username" name="username"/></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" id="password" name="password"/></td>
+            </tr>
+            <tr>
+                <input type="button" onclick="submitForm();" value="登录"/>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+<link rel="stylesheet" th:href="@{/plugins/bootstrap-3.3.0/css/bootstrap.min.css}" />
+<script type="text/javascript"  th:src="@{/plugins/jquery.1.12.4.min.js}"></script>
+<script>
+function submitForm() {
+    var username = $('#username').val();
+    var password = $('#password').val();
+    $.ajax({
+        url: '/main/index.do',
+        type: 'post',
+        async: false,
+        data: {"username":username, "password":password},
+        success: function (data) {
+            alert(data);
+        }
+    });
+}
+</script>
+</html>

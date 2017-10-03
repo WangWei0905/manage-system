@@ -45,7 +45,7 @@ public class LoginController extends BasicController {
      */
     @RequestMapping("/login.do")
     public String toLoginPage()  {
-        return "login";
+        return "main/login";
     }
 
     /**
@@ -126,7 +126,7 @@ public class LoginController extends BasicController {
     public String logout(){
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.logout();
-        return "login";
+        return "main/login";
 
     }
 
